@@ -214,7 +214,7 @@ The password of `5a105e8b9d40e1329780d62ea2265d8a` is `test1`.
 > RSA encryption can be vulnerable to attacks if the same plaintext message is encrypted multiple times with the same
 > public key. This can allow an attacker to gather information about the plaintext and potentially break the encryption.
 >
-> Therefore, RSA is not a perfect secrecy system.
+> Therefore, **RSA is not a perfect secrecy system**.
 >
 > For perfect secrecy, one must use a system like the one-time pad, which uses a random key that is at least as long as
 > the plaintext message and is used only once.
