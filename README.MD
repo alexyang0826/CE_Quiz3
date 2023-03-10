@@ -201,7 +201,7 @@ If the hash value is matched, the password will be printed.
 
 ### Result
 
-The password of `5f4dcc3b5aa765d61d8327deb882cf99` is `password`.
+The password of `5f4dcc3b5aa765d61d8327deb882cf99` is `password`.  
 The password of `5a105e8b9d40e1329780d62ea2265d8a` is `test1`.
 
 ## Bonus 2
