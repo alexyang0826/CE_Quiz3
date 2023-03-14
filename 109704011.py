@@ -38,19 +38,15 @@ def split_message(message, n):
 def find_key_lenth(message):
     """Find the key length of a message"""
     ic_list = []
-    for i in range(1, 10):
+    for i in range(1, 8):
         sp_message = split_message(message, i)
         average_ic = 0
         for msg in sp_message:
             average_ic += count_ic(msg)
         ic_list.append(average_ic / i)
     """print the key length and the corresponding IC"""
-    possible_key_length = []
-    for i in range(len(ic_list)):
-        if ic_list[i] >= ic_list[max(i - 1, 0)] and ic_list[i] >= ic_list[min(i + 1, len(ic_list) - 1)] and ic_list[i] > 0.06:
-            possible_key_length.append(i + 1)
-        print("Key length: %d, IC: %f" % (i + 1, ic_list[i]))
-    return possible_key_length
+    # return the key length with the highest IC
+    return ic_list.index(max(ic_list)) + 1
 
 def find_single_key(message):
     """Find the key of a message"""
@@ -94,7 +90,7 @@ def decrypt(message, key):
 
 if __name__ == '__main__':
     # get message1 from txt
-    print("Message 1:")
+    # print("Message 1:")
     message = read_txt('message1.txt')
     # get message from stdin
     # message = input("Enter a message: ")
@@ -105,41 +101,42 @@ if __name__ == '__main__':
     # print(message)
     # print(split_message(message, 2))
     # print(count_ic(message))
-    print("Possible key lenth:",find_key_lenth(message))
-    key_lenth = input("Enter the key length: ")
+    possible_key_lenth = find_key_lenth(message)
+    # print("Possible key lenth:", possible_key_lenth)
+    key_lenth = possible_key_lenth
     key = find_key(message, int(key_lenth))
-    print("Key: %s" % key)
+    # print("Key: %s" % key)
     decrypt_message = decrypt(message, key)
-    print("Decrypted message: %s" % decrypt_message)
+    # print("Decrypted message: %s" % decrypt_message)
     # save output to txt
     with open('109704011_msg1.txt', 'w') as f:
         f.write(decrypt_message)
 
 
     # get message2 from txt
-    print("\nMessage 2:")
+    # print("\nMessage 2:")
     message = read_txt('message2.txt')
     message = clear_message(message)
-    print("Possible key lenth:", find_key_lenth(message))
-    key_lenth = input("Enter the key length: ")
+    possible_key_lenth = find_key_lenth(message)
+    # print("Possible key lenth:", possible_key_lenth)
+    key_lenth = possible_key_lenth
     key = find_key(message, int(key_lenth))
-    print("Key: %s" % key)
+    # print("Key: %s" % key)
     decrypt_message = decrypt(message, key)
-    print("Decrypted message: %s" % decrypt_message)
+    # print("Decrypted message: %s" % decrypt_message)
     # save output to txt
     with open('109704011_msg2.txt', 'w') as f:
         f.write(decrypt_message)
 
     # get message from stdin
-    message = input("\nEnter a message: ")
+    message = input()
     message = clear_message(message)
     # save clean message to txt
-    with open('message2_clean.txt', 'w') as f:
-        f.write(message)
-    print("Possible key lenth:", find_key_lenth(message))
-    key_lenth = input("Enter the key length: ")
+    possible_key_lenth = find_key_lenth(message)
+    # print("Possible key lenth:", possible_key_lenth)
+    key_lenth = possible_key_lenth
     key = find_key(message, int(key_lenth))
-    print("Key: %s" % key)
+    # print("Key: %s" % key)
     decrypt_message = decrypt(message, key)
-    print("Decrypted message: %s" % decrypt_message)
+    print(decrypt_message)
 

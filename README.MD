@@ -138,25 +138,16 @@ decrypt function will decrypt a message with a given key we found.
 
 run the following command to run the program:
 
-    python 109704011.py
+    python 109704011.py < {YOUR_INPUT_FILE}
 
 The code will automatically run three times.
 
 The first time for **Part 1**, the second time for **Part 2**, and the third time for **stdin**.
 
-It will run `question 1` first and display possible key length.
-
-![question 1](/img/question_1.png)
-
-After that, you will be asked to input the key length of the message.
-Then the code will run `question 2` and `question 3` and print the decrypted message.
-
-![question 2 and 3](/img/question_2_and_3.png)
-
-After that, you will be asked to input the message you want to decrypt.
-
 At the end, **part 1** and **part 2** result will be saved in `109704011_msg1.txt` and `109704011_msg2.txt`
-respectively.
+respectively without displaying on the screen.
+
+**stdin** result will be displayed on the screen.
 
 ## Result
 
